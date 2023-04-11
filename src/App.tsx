@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import AuthContext from './Context/AuthContext';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import AddProduct from './Pages/Admin/Add Product/AddProduct';
 import HomeAdmin from './Pages/Admin/Home/HomeAdmin';
@@ -38,6 +38,7 @@ function App() {
           </Route>
 
         </Route>
+        <Route path='*' element={<Navigate to={'User/Home'} replace/>} />
       </Routes>
     </AuthContext.Provider>
   );
