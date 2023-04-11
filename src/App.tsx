@@ -6,7 +6,8 @@ import Login from './Pages/Login/Login';
 import AddProduct from './Pages/Admin/Add Product/AddProduct';
 import HomeAdmin from './Pages/Admin/Home/HomeAdmin';
 import OutletNav from './Outlet/OutletNav';
-import { Home } from './Pages/Home User/Home';
+import Home from './Pages/Home User/Home';
+import ProductDetail from './Pages/Detail/ProductDetail';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -33,6 +34,7 @@ function App() {
 
           <Route path='User'>
             <Route path='Home' element={<Home />} />
+            <Route path='Product/:id' element={<ProductDetail />} />
           </Route>
 
         </Route>

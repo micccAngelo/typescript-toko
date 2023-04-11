@@ -1,0 +1,25 @@
+.custom-list-group {
+    width: 200px;
+    text-align: left;
+    margin-left: 15px;
+}
+
+.card {
+    width: 250px;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: left;
+  }
+  
+.category-title {
+    font-size: x-large;
+}
+
+
+  

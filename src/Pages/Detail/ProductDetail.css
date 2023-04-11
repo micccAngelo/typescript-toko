@@ -1,0 +1,42 @@
+.card-container-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.card-detail {
+    height: 600px;
+    width: 70%;
+}
+
+.images {
+    padding-top: 7%;
+    max-height: 600px;
+    width: 300px;
+}
+
+.detail-texts {
+    padding-top: 7%;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.card-add-button-container{
+    margin-top: 50px;
+}
+
+.button-add {
+    width: 650px;
+}
+
+.ratings {
+    display: flex;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.star {
+    padding-right: 500px;
+}
