@@ -1,0 +1,22 @@
+.navbar {
+    background: linear-gradient(to bottom, #F5F5F5, #E8E8E8);
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .nav-link {
+    color: #656565;
+  }
+  
+  .nav-link:hover {
+    color: #F5A623 !important;
+    transition: color 0.3s ease;
+  }
+  
+  .search-bar {
+    width: 500px;
+  }
+
+  .username {
+    font-weight: bold;
+    padding-right: 50px;
+  }
