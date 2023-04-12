@@ -141,7 +141,7 @@ const Home: React.FC = () => {
             title="Success!"
             message={`${productName} has been added to cart.`}
         />
-        </div>
+      </div>
     );
 };
 
