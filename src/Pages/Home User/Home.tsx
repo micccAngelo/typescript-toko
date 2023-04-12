@@ -1,5 +1,5 @@
 import './Home.css';
-
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import GetProductbyCategory from '../../API Services/GetProductbyCategory';
 import Search from '../../API Services/Search';
 import Loadings from '../../Reusable/Loadings';
 import Modals from '../../Reusable/Modals';
+import { addToCart } from '../../Store/CartSlice';
 
 interface Product {
     id: number;
@@ -29,6 +30,7 @@ const Home: React.FC = () => {
   const [notFound, setNotFound] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [search] = useSearchParams();
+  const dispatch = useDispatch();
 
   console.log(selectedCategory);
 
@@ -97,7 +99,7 @@ const Home: React.FC = () => {
   };
 
   const handleAddToCart = (product: Product): void => {
-    // dispatch(addToCart(product));
+    dispatch(addToCart(product));
     setShowModal(true);
     setProductName(product.title);
   };

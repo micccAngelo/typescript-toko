@@ -8,6 +8,7 @@ import HomeAdmin from './Pages/Admin/Home/HomeAdmin';
 import OutletNav from './Outlet/OutletNav';
 import Home from './Pages/Home User/Home';
 import ProductDetail from './Pages/Detail/ProductDetail';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -34,6 +35,7 @@ function App() {
 
           <Route path='User'>
             <Route path='Home' element={<Home />} />
+            <Route path='Cart' element={<Cart />} />
             <Route path='Product/:id' element={<ProductDetail />} />
           </Route>
 

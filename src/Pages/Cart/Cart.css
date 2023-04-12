@@ -1,0 +1,23 @@
+.cart {
+    width: 100%;
+}
+
+.header {
+    padding-top: 50px;
+}
+
+.texts {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.buttons {
+    padding-top: 100%;
+    padding-right: 20%;
+}
+
+.total-price {
+    padding-top: 20px;
+}
