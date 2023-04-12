@@ -8,20 +8,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import GetSingleProduct from '../../API Services/GetSingleProduct';
 import { Badge, Button } from 'react-bootstrap';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import Product from '../../Model/Product';
+import { addToCart } from '../../Store/CartSlice';
+import { useDispatch } from 'react-redux';
 
 interface ProductDetailProps {}
-
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    rating: number;
-    brand: string;
-    stock: number;
-    description: string;
-    category: string;
-    images: string[];
-}
 
 const ProductDetail: React.FC<ProductDetailProps> = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -30,6 +21,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
     const [productName, setProductName] = useState<string>();
     const [stock, setStock] = useState<number>();
     const { id } = useParams<{ id: string }>();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchProducts = async (id:any) => {
@@ -82,6 +74,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
         setStock(product.stock - 1); 
         setShowModal(true);
         setProductName(product.title);
+        dispatch(addToCart(product));
         console.log(product.stock)
         console.log(stock)
     };

@@ -10,17 +10,7 @@ import Modals from '../../../Reusable/Modals';
 import AuthContext from '../../../Context/AuthContext';
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    brand: string;
-    stock: number;
-    description: string;
-    category: string;
-    images: string[];
-}
+import Product from '../../../Model/Product';
   
   const HomeAdmin = () => {
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -51,7 +41,7 @@ interface Product {
         navigate('/Admin/AddProduct');
       };
     
-      const handleDeleteProduct = async (id: number, title: string) => {
+      const handleDeleteProduct = async (id: any, title: string) => {
         try {
           await DeleteProduct(id);
           setDeleteModal(true);

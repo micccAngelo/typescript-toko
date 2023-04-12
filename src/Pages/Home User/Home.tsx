@@ -10,17 +10,7 @@ import Search from '../../API Services/Search';
 import Loadings from '../../Reusable/Loadings';
 import Modals from '../../Reusable/Modals';
 import { addToCart } from '../../Store/CartSlice';
-
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    brand: string;
-    stock: number;
-    description: string;
-    category: string;
-    images: string[];
-}
+import Product from '../../Model/Product';
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);

@@ -1,20 +1,12 @@
 import BaseURL from './Base URL/BaseURL';
-
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    brand: string;
-    stock: number;
-    description: string;
-    category: string;
-    images: string[];
-}
+import Product from '../Model/Product';
 
 const GetAllProduct = async (): Promise<Array<Product>> => {
     try {
         const response = await BaseURL.get('/products');
-        return Promise.resolve(response.data.products);
+        const apiProducts = response.data.products;
+        const products = apiProducts.map((apiProduct: Product) => new Product(apiProduct));
+        return Promise.resolve(products);
     } catch (error) {
         console.log(error);
         return Promise.reject();
@@ -22,5 +14,3 @@ const GetAllProduct = async (): Promise<Array<Product>> => {
 };
 
 export default GetAllProduct;
-
-

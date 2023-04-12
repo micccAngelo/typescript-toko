@@ -1,23 +1,12 @@
 import BaseURL from './Base URL/BaseURL';
-
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    brand: string;
-    stock: number;
-    description: string;
-    rating: number;
-    category: string;
-    images: string[];
-}
+import Product from '../Model/Product';
 
 const GetSingleProduct = async (id: number): Promise<Product> => {
     try {
         const response = await BaseURL.get(`/products/${id}`);
-        console.log(id);
-        console.log(response);
-        return Promise.resolve(response.data);
+        const apiProduct = response.data;
+        const productResponse = new Product(apiProduct);
+        return Promise.resolve(productResponse);
     } catch (error) {
         console.log(error);
         return Promise.reject();
@@ -25,4 +14,3 @@ const GetSingleProduct = async (id: number): Promise<Product> => {
 };
   
 export default GetSingleProduct;
-  

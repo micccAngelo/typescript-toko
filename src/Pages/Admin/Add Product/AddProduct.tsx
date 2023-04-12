@@ -6,38 +6,28 @@ import * as Yup from 'yup';
 import React, { useContext } from 'react';
 import Loadings from '../../../Reusable/Loadings';
 import GetCategories from '../../../API Services/GetCategories';
-import AddProducts from '../../../API Services/AddProduct';
+import AddProducts from '../../../API Services/AddProductAPI';
 import Modals from '../../../Reusable/Modals';
 import { Navigate } from 'react-router-dom';
 import AuthContext from '../../../Context/AuthContext';
-
-interface IProductForm {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    stock: number;
-    category: string;
-    brand: string;
-    thumbnail: string;
-    images: string[];
-}
+import Product from '../../../Model/Product';
 
 const AddProduct: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [name, setName] = useState <string | undefined>();
   const [showModal, setShowModal] = useState<boolean>(false);
   const { isLoggedIn } = useContext(AuthContext);
-  const initialValues: IProductForm = {
-    id: 0,
+  const initialValues: Product = {
     title: '',
-    images: [],
-    description: '',
     price: 0,
-    stock: 0,
-    category: '',
     brand: '',
+    stock: 0,
+    rating: 0,
+    description: '',
+    category: '',
     thumbnail: '',
+    images: []
   };
 
   useEffect(() => {
@@ -57,7 +47,7 @@ const AddProduct: React.FC = () => {
       .required('Product name is required')
       .min(3, 'Product name must be at least 3 characters')
       .max(15, 'Product name must be less than 15 characters')
-      .matches(/^[a-zA-Z0-9]*$/, 'Product name can only contain letters and numbers'),
+      .matches(/^[a-zA-Z0-9\s]*$/, 'Product name can only contain letters and numbers'),
     description: Yup.string()
       .required('Description is required')
       .min(10, 'Description must be at least 10 characters')
@@ -77,11 +67,11 @@ const AddProduct: React.FC = () => {
     images: Yup.string().required('Image is required'),
   });
 
-  const onSubmit = async (values: IProductForm, { resetForm }: any) => {
+  const onSubmit = async (values: Product, { resetForm }: any) => {
     setLoading(true);
     console.log(values);
     try {
-      const response = await AddProducts(values);
+      const response = await AddProducts(new Product(values));
       console.log(response);
       setShowModal(true);
       setLoading(false);
