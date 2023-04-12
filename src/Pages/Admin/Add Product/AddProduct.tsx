@@ -15,7 +15,6 @@ import Product from '../../../Model/Product';
 const AddProduct: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [name, setName] = useState <string | undefined>();
   const [showModal, setShowModal] = useState<boolean>(false);
   const { isLoggedIn } = useContext(AuthContext);
   const initialValues: Product = {

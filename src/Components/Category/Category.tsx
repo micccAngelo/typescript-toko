@@ -28,14 +28,14 @@ function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
   }, []);
   
   return (
-    <div className="row" style={{ paddingTop: "50px", position: "fixed", left: 0 }}>
+    <div className="row" style={{ paddingTop: "50px", left: 0 }}>
       <div className="col-md-4">
         {!loading && (
           <Card className='card'>
             <Card.Header className='card-header'>
               <Card.Title className='category-title category-sidebar'>Categories</Card.Title>
             </Card.Header>
-            <ListGroup variant="flush" className="custom-list-group no-border" style={{ overflowY: "scroll", maxHeight: "80vh" }}>
+            <ListGroup variant="flush" className="custom-list-group no-border" >
               {categories.map((category: string) => (
                 <ListGroup.Item 
                   key={category} 
