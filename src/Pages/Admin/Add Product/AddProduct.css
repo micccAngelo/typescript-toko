@@ -40,3 +40,71 @@
   .area {
     height: 100px;
   }
+
+  @media (max-width: 1070px) {
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+    }
+
+    .form-control-field {
+      width: 700px;
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
+
+  @media (max-width: 840px) {
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+    }
+    
+    .form-control-field {
+      width: 550px;
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+    }
+    
+    .form-control-field {
+      width: 350px;
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+    }
+    
+    .form-control-field {
+      width: 220px;
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
