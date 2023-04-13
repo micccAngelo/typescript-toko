@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import GetCategories from '../../API Services/GetCategories';
-import { ListGroup, Card } from 'react-bootstrap';
-import Loadings from '../../Reusable/Loadings';
-import './Category.css';
+import { useEffect, useState } from "react";
+import GetCategories from "../../API Services/GetCategories";
+import { ListGroup, Card } from "react-bootstrap";
+import Loadings from "../../Reusable/Loadings";
+import "./Category.css";
 
 interface CategoryProps {
   handleCategorySelect: (category: string) => void;
@@ -26,20 +26,25 @@ function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
     };
     fetchCategories();
   }, []);
-  
+
   return (
     <div className="row" style={{ paddingTop: "50px", left: 0 }}>
       <div className="col-md-4">
         {!loading && (
-          <Card className='card-category'>
-            <Card.Header className='card-header'>
-              <Card.Title className='category-title-header category-sidebar'>Categories</Card.Title>
+          <Card className="card-category">
+            <Card.Header className="card-header">
+              <Card.Title className="category-title-header category-sidebar">
+                Categories
+              </Card.Title>
             </Card.Header>
-            <ListGroup variant="flush" className="custom-list-group category-list no-border" >
+            <ListGroup
+              variant="flush"
+              className="custom-list-group category-list no-border"
+            >
               {categories.map((category: string) => (
-                <ListGroup.Item 
-                  key={category} 
-                  action 
+                <ListGroup.Item
+                  key={category}
+                  action
                   active={category === selectedCategory}
                   onClick={() => handleCategorySelect(category)}
                 >

@@ -1,15 +1,20 @@
-import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Navbar.css';
-import { useContext, useState } from 'react';
-import { useNavigate, useSearchParams, Link, useLocation } from 'react-router-dom';
-import AuthContext from '../../Context/AuthContext';
-import Modals from '../../Reusable/Modals';
+import { Navbar, Container, Nav, Form, FormControl } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Navbar.css";
+import { useContext, useState } from "react";
+import {
+  useNavigate,
+  useSearchParams,
+  Link,
+  useLocation,
+} from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
+import Modals from "../../Reusable/Modals";
 
 function AppNavbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem("username");
   const [search, setSearch] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,12 +28,12 @@ function AppNavbar() {
     const searchInput = e.target.value;
 
     if (searchInput.length === 0) {
-      search.delete('q');
+      search.delete("q");
       setSearch(search, {
         replace: true,
       });
     } else {
-      search.set('q', searchInput);
+      search.set("q", searchInput);
       setSearch(search, {
         replace: true,
       });
@@ -37,10 +42,10 @@ function AppNavbar() {
 
   const handleLogoutConfirm = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('username');
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem("username");
+    localStorage.removeItem("isLoggedIn");
     setShowLogoutModal(false);
-    navigate('/User/Home');
+    navigate("/User/Home");
   };
 
   const handleLogoutCancel = () => {
@@ -51,7 +56,7 @@ function AppNavbar() {
     <Navbar expand="md">
       <Container fluid>
         <Link to="/User/Home">
-          <Navbar.Brand className='nav-brand'>
+          <Navbar.Brand className="nav-brand">
             <img
               src="/logo_cart.png"
               width="50"
@@ -65,13 +70,21 @@ function AppNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           {!isLoggedIn && (
             <Form className="d-flex ms-auto">
-              <FormControl type="search" placeholder="Search your product here" onChange={onSearch} className="me-2 search-bar" aria-label="Search" />
+              <FormControl
+                type="search"
+                placeholder="Search your product here"
+                onChange={onSearch}
+                className="me-2 search-bar"
+                aria-label="Search"
+              />
             </Form>
           )}
           <Nav className="ms-auto">
             {isLoggedIn && (
               <>
-                <Navbar.Text className="username me-3">Hello, {username}!</Navbar.Text>
+                <Navbar.Text className="username me-3">
+                  Hello, {username}!
+                </Navbar.Text>
                 <Nav.Link href="/" onClick={handleLogoutClick}>
                   Logout
                 </Nav.Link>
@@ -90,7 +103,12 @@ function AppNavbar() {
               </>
             )}
             {!isLoggedIn && (
-              <Link to="/User/Cart" className={`nav-link ${location.pathname === '/User/Cart' ? 'active' : ''}`}>
+              <Link
+                to="/User/Cart"
+                className={`nav-link ${
+                  location.pathname === "/User/Cart" ? "active" : ""
+                }`}
+              >
                 Shopping Cart
               </Link>
             )}

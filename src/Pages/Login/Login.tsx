@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import './Login.css';
-import AuthContext from '../../Context/AuthContext';
-import Modals from '../../Reusable/Modals';
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import "./Login.css";
+import AuthContext from "../../Context/AuthContext";
+import Modals from "../../Reusable/Modals";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -12,36 +12,39 @@ const Login = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   useEffect(() => {
-    const isLoggedInValue = localStorage.getItem('isLoggedIn');
-    if (isLoggedInValue === 'true') {
+    const isLoggedInValue = localStorage.getItem("isLoggedIn");
+    if (isLoggedInValue === "true") {
       setIsLoggedIn(true);
     }
   }, [setIsLoggedIn]);
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
-      .required('Username is required')
-      .min(5, 'Username must be at least 5 characters')
-      .max(15, 'Username must be less than 15 characters')
-      .matches(/^[a-zA-Z0-9_]*$/, 'Username can only contain letters, numbers, and underscores'),
+      .required("Username is required")
+      .min(5, "Username must be at least 5 characters")
+      .max(15, "Username must be less than 15 characters")
+      .matches(
+        /^[a-zA-Z0-9_]*$/,
+        "Username can only contain letters, numbers, and underscores"
+      ),
     password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters'),
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters"),
   });
 
   const handleSubmit = (values: { username: string; password: string }) => {
     console.log(values);
-    localStorage.setItem('username', values.username);
-    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem("username", values.username);
+    localStorage.setItem("isLoggedIn", "true");
     setIsLoggedIn(true);
     setShowSuccess(true);
     setTimeout(() => {
-      navigate('/Admin/Home');
+      navigate("/Admin/Home");
     }, 2000);
   };
   console.log(isLoggedIn);
@@ -56,7 +59,11 @@ const Login = () => {
         <div className=" card LoginCard">
           <div className="card-body login-body">
             <h1 className="title-login card-title mb-4">Login</h1>
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
               {({ errors, touched }) => (
                 <Form>
                   <div className="form-group mb-3">
@@ -65,9 +72,15 @@ const Login = () => {
                       type="text"
                       name="username"
                       id="username"
-                      className={`form-control ${errors.username && touched.username ? 'is-invalid' : ''}`}
+                      className={`form-control ${
+                        errors.username && touched.username ? "is-invalid" : ""
+                      }`}
                     />
-                    <ErrorMessage name="username" component="div" className="invalid-feedback" />
+                    <ErrorMessage
+                      name="username"
+                      component="div"
+                      className="invalid-feedback"
+                    />
                   </div>
                   <div className="form-group mb-3">
                     <label htmlFor="password">Password</label>
@@ -75,12 +88,22 @@ const Login = () => {
                       type="password"
                       name="password"
                       id="password"
-                      className={`form-control ${errors.password && touched.password ? 'is-invalid' : ''}`}
+                      className={`form-control ${
+                        errors.password && touched.password ? "is-invalid" : ""
+                      }`}
                     />
-                    <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="invalid-feedback"
+                    />
                   </div>
                   <div className="form-group button mb-3">
-                    <button type="submit" className="btn btn-success btn-block" style={{ width: '100%' }}>
+                    <button
+                      type="submit"
+                      className="btn btn-success btn-block"
+                      style={{ width: "100%" }}
+                    >
                       Login
                     </button>
                   </div>
@@ -91,7 +114,7 @@ const Login = () => {
               show={showSuccess}
               onCloseButtonClick={() => setShowSuccess(false)}
               title="Success!"
-              message={`Hello ${localStorage.getItem('username')}!`}
+              message={`Hello ${localStorage.getItem("username")}!`}
             />
           </div>
         </div>
