@@ -92,7 +92,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
                 className="card-img-carousel"
                 variant="left"
                 src={product.images[0]}
-                style={{ objectFit: "cover", width: "350px", height: "450px" }}
+                style={{ objectFit: "cover" }}
               />
             </Carousel.Item>
             <Carousel.Item>
@@ -100,7 +100,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
                 className="card-img-carousel"
                 variant="left"
                 src={product.images[1]}
-                style={{ objectFit: "cover", width: "350px", height: "450px" }}
+                style={{ objectFit: "cover" }}
               />
             </Carousel.Item>
             <Carousel.Item>
@@ -108,7 +108,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
                 className="card-img-carousel"
                 variant="left"
                 src={product.images[2]}
-                style={{ objectFit: "cover", width: "350px", height: "450px" }}
+                style={{ objectFit: "cover" }}
               />
             </Carousel.Item>
           </Carousel>

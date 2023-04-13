@@ -2,18 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 3%;
 }
 
 .card-detail {
-    height: 600px;
-    width: 70%;
+    height: 90%;
+    width: 90%;
 }
 
 .images {
-    padding-top: 7%;
-    max-height: 600px;
-    width: 300px;
+    padding-top: 5%;
+    max-height: 40%;
+    max-width: 50%;
 }
 
 .detail-texts {
@@ -27,21 +27,42 @@
 }
 
 .button-add {
-    width: 650px;
+    width: 100%;
+    height: auto;
 }
 
 .ratings {
     display: flex;
     text-align: left;
+    flex-direction: column;
     display: flex;
     justify-content: space-between;
 }
 
 .star {
-    padding-right: 500px;
+    padding-right: 5%;
 }
 
 .card-img-carousel {
     height: 100%;
-    width: 15%;
+    width: 100%;
+}
+
+@media (max-width: 550px) {
+    .button-add {
+        width: 200px;
+        height: auto;
+    }
+
+    .detail-texts {
+        font-size: small;
+    }
+
+    .card-image-carousel {
+        display: none;
+    }
+
+    .images {
+        display: none;
+    }
 }
