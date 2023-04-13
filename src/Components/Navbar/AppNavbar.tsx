@@ -49,7 +49,7 @@ function AppNavbar() {
 
   return (
     <Navbar expand="md">
-      <Container>
+      <Container fluid>
         <Link to="/User/Home">
           <Navbar.Brand>
             <img

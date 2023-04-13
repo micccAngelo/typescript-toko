@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   const [productName, setProductName] = useState<string>();
   const [notFound, setNotFound] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const [search] = useSearchParams();
   const dispatch = useDispatch();
 
@@ -111,7 +111,8 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div className="user-product-grid">        
+    <div>
+        <div className="user-product-grid">        
       <Category handleCategorySelect={handleCategorySelect} />
       <div className='title-name-container'>
         <div className='title-user'>
@@ -142,6 +143,8 @@ const Home: React.FC = () => {
             message={`${productName} has been added to cart.`}
         />
       </div>
+    </div>
+    
     );
 };
 
