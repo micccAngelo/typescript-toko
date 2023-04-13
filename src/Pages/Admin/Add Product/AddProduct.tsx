@@ -103,7 +103,7 @@ const AddProduct: React.FC = () => {
         onSubmit={onSubmit}
       >
         {({ isSubmitting, errors, touched }) => (
-          <Form className='form-position'>
+          <Form className='form-position-add'>
             <div className="form-group">
               <label htmlFor="title">Product Name</label>
               <Field type="text" id="title" placeholder="Enter Product Name" name="title" className={`form-control-field ${errors.title && touched.title ? 'is-invalid' : ''}`} />
@@ -151,7 +151,7 @@ const AddProduct: React.FC = () => {
               <Field type="file" id="images" accept=".jpeg,.png" name="images" className={`form-control-field ${errors.images && touched.images ? 'is-invalid' : ''}`} />
               <ErrorMessage name="images" component="div" className="invalid-feedback"/>
             </div>
-            <Button type="submit" className='button-submit' variant="outline-primary" disabled={isSubmitting}>Submit</Button>
+            <Button type="submit" className='button-submit-add' variant="outline-primary" disabled={isSubmitting}>Submit</Button>
           </Form>
         )}
       </Formik>

@@ -1,14 +1,20 @@
-.LoginCard {
+.position-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    height: 100vh;
+  }
+  
+  .LoginCard {
     margin-top: 70px;
     text-align: left;
-}
-
-.title {
-    padding-bottom: 5px;
-}
-
-.position {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-}
+    width: 80%;
+    height: 60%;
+  }
+  
+  .title-login {
+    padding-bottom: 25px;
+  }

@@ -17,6 +17,15 @@
     border-radius: 0.25rem;
     border: 1px solid #ccc;
   }
+
+  .button-submit-add {
+    width: 800px;
+  }
+
+  .button-submit-add:hover {
+    width: 800px;
+    color: blue;
+  }
   
   .form-control-field {
     width: 800px;
@@ -24,13 +33,12 @@
     border-radius: 5px;
   }
 
-  .form-position {
+  .form-position-add {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: left;
-    align-items: flex-start;
   }
 
   .position {
@@ -56,6 +64,15 @@
       height: 40px;
       border-radius: 5px;
     }
+
+    .button-submit-add {
+      width: 700px;
+    }
+  
+    .button-submit-add:hover {
+      width: 700px;
+      color: blue;
+    }
   }
 
   @media (max-width: 840px) {
@@ -72,6 +89,15 @@
       width: 550px;
       height: 40px;
       border-radius: 5px;
+    }
+
+    .button-submit-add {
+      width: 550px;
+    }
+  
+    .button-submit-add:hover {
+      width: 550px;
+      color: blue;
     }
   }
 
@@ -90,6 +116,15 @@
       height: 40px;
       border-radius: 5px;
     }
+
+    .button-submit-add {
+      width: 350px;
+    }
+  
+    .button-submit-add:hover {
+      width: 350px;
+      color: blue;
+    }
   }
 
   @media (max-width: 400px) {
@@ -106,5 +141,14 @@
       width: 240px;
       height: 40px;
       border-radius: 5px;
+    }
+
+    .button-submit-add {
+      width: 240px;
+    }
+  
+    .button-submit-add:hover {
+      width: 240px;
+      color: blue;
     }
   }
