@@ -116,21 +116,21 @@ const Home: React.FC = () => {
       <Category handleCategorySelect={handleCategorySelect} />
       <div className='title-name-container'>
         <div className='title-user'>
-          <h3 className='category-title-name' style={{ width: '500px', height: '50px'}}>Selected Category: {selectedCategory === '' ? 'All' : selectedCategory}</h3>
+          <h3 className='category-title-name'>Selected Category: {selectedCategory === '' ? 'All' : selectedCategory}</h3>
         </div>
         <div className='user-card'>
         {products && products.length > 0 && products.map(product => (
-          <Card style={{ width: '18rem', height: '450px' }} key={product.id} className="product-card-user">
+          <Card key={product.id} className="product-card-user">
               <Link to={`/User/Product/${product.id}`} style={{textDecoration: 'none', color: 'black'}}>
-              <Card.Img variant="top" style={{ width: '100%', height: '200px', objectFit: 'cover' }} src={product.images[0]} />
+              <Card.Img className='image-user' variant="top" src={product.images[0]} />
               <Card.Body>
-                  <Card.Text className='text-left title'>{product.title}</Card.Text>
-                  <Card.Text className='text-left price'>${product.price}</Card.Text>
-                  <Card.Text className='text-left brand'>{product.brand}</Card.Text>
+                  <Card.Text className='text-left title-item-user'>{product.title}</Card.Text>
+                  <Card.Text className='text-left price-user'>${product.price}</Card.Text>
+                  <Card.Text className='text-left brand-user'>{product.brand}</Card.Text>
               </Card.Body>
               </Link>
-              <div className='card-button-container'>
-                  <Button variant="outline-secondary" onClick={() => handleAddToCart(product)}>Add to cart</Button>
+              <div className='card-button-container-user'>
+                  <Button variant="outline-secondary button-add-text" onClick={() => handleAddToCart(product)}>Add to cart</Button>
               </div>
           </Card>
           ))}

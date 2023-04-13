@@ -40,3 +40,8 @@
 .star {
     padding-right: 500px;
 }
+
+.card-img-carousel {
+    height: 100%;
+    width: 15%;
+}

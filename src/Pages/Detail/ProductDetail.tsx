@@ -83,15 +83,15 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
         <div className='card-container-detail'>
         {product ? (
             <Card className='card-detail' style={{ display: 'flex', flexDirection: 'row' }}>
-            <Carousel slide={false} interval={3000} className='images' style={{ width: '400px', height: '600px'}}>
+            <Carousel slide={false} interval={3000} className='images' >
                 <Carousel.Item>
-                    <Card.Img className='card-img' variant='left' src={product.images[0]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
+                    <Card.Img className='card-img-carousel' variant='left' src={product.images[0]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <Card.Img className='card-img' variant='left' src={product.images[1]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
+                    <Card.Img className='card-img-carousel' variant='left' src={product.images[1]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <Card.Img className='card-img' variant='left' src={product.images[2]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
+                    <Card.Img className='card-img-carousel' variant='left' src={product.images[2]} style={{ objectFit: 'cover', width: '350px', height: '450px' }}/>
                 </Carousel.Item>
             </Carousel>
                 <Card.Body className='detail-texts'>

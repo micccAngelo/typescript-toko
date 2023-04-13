@@ -4,7 +4,7 @@
     margin-left: 15px;
 }
 
-.card {
+.card-category {
     width: 250px;
 }
 
@@ -21,27 +21,28 @@
     font-size: x-large;
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .custom-list-group {
       width: 100%;
       margin-left: 0;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
     }
   
-    .card {
+    .card-category {
       width: 100%;
     }
   
     .category-title-header {
       font-size: large;
-      text-align: center;
+      text-align: left;
     }
   
     .list-group-item {
       font-size: small;
       padding: 0.25rem 0.5rem;
+    }
+
+    .category-lis {
+      text-align: left;
     }
 }
   

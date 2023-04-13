@@ -31,11 +31,11 @@ function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
     <div className="row" style={{ paddingTop: "50px", left: 0 }}>
       <div className="col-md-4">
         {!loading && (
-          <Card className='card'>
+          <Card className='card-category'>
             <Card.Header className='card-header'>
               <Card.Title className='category-title-header category-sidebar'>Categories</Card.Title>
             </Card.Header>
-            <ListGroup variant="flush" className="custom-list-group no-border" >
+            <ListGroup variant="flush" className="custom-list-group category-list no-border" >
               {categories.map((category: string) => (
                 <ListGroup.Item 
                   key={category} 
