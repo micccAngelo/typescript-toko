@@ -75,13 +75,13 @@ import Product from '../../../Model/Product';
             <div className="product-card-container">
               {products && products.length > 0 && products.map((product: Product) => (
                 <Card style={{ width: '18rem', height: '450px' }} key={product.id} className="product-card">
-                  <Card.Img variant="top" style={{ width: '250px' }} src={product.images[0]} />
+                  <Card.Img variant="top" src={product.images[0]} />
                   <Card.Body>
                     <Card.Text className='text-left title'>{product.title}</Card.Text>
                     <Card.Text className='text-left price'>${product.price}</Card.Text>
                     <Card.Text className='text-left brand'>{product.brand}</Card.Text>
-                    <div className='card-button-container'>
-                      <Button variant="outline-danger" onClick={() => handleDeleteProduct(product.id, product.title)} disabled={loading}>Delete Item</Button>
+                    <div className='card-button-container delete'>
+                      <Button variant="outline-danger delete" onClick={() => handleDeleteProduct(product.id, product.title)} disabled={loading}>Delete Item</Button>
                     </div>
                   </Card.Body>
                 </Card>
