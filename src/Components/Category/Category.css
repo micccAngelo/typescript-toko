@@ -17,9 +17,32 @@
     text-align: left;
   }
   
-.category-title {
+.category-title-header {
     font-size: x-large;
 }
 
-
+@media only screen and (max-width: 767px) {
+    .custom-list-group {
+      width: 100%;
+      margin-left: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .card {
+      width: 100%;
+    }
+  
+    .category-title-header {
+      font-size: large;
+      text-align: center;
+    }
+  
+    .list-group-item {
+      font-size: small;
+      padding: 0.25rem 0.5rem;
+    }
+}
+  
   

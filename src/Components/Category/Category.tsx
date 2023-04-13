@@ -33,7 +33,7 @@ function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
         {!loading && (
           <Card className='card'>
             <Card.Header className='card-header'>
-              <Card.Title className='category-title category-sidebar'>Categories</Card.Title>
+              <Card.Title className='category-title-header category-sidebar'>Categories</Card.Title>
             </Card.Header>
             <ListGroup variant="flush" className="custom-list-group no-border" >
               {categories.map((category: string) => (

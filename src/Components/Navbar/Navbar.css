@@ -1,6 +1,8 @@
 .navbar {
     background: linear-gradient(to bottom, #F5F5F5, #E8E8E8);
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
   }
   
   .nav-link {
@@ -19,4 +21,25 @@
   .username {
     font-weight: bold;
     padding-right: 50px;
+  }
+
+  .nav-brand {
+    padding-left: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .search-bar {
+      width: 100%;
+      margin-right: 10px;
+      text-align: center;
+    }
+
+    .username {
+      text-align: center;
+      padding: 0;
+    }
   }

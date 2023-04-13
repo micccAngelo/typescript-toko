@@ -91,3 +91,10 @@
   justify-content: center;
   padding-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .user-product-grid {
+    flex: 1;
+    overflow-y: auto; 
+  }
+}

@@ -51,12 +51,12 @@ function AppNavbar() {
     <Navbar expand="md">
       <Container fluid>
         <Link to="/User/Home">
-          <Navbar.Brand>
+          <Navbar.Brand className='nav-brand'>
             <img
               src="/logo_cart.png"
               width="50"
               height="50"
-              className="d-inline-block align-top"
+              className="d-inline-block align-top navbar-img"
               alt="React Bootstrap logo"
             />
           </Navbar.Brand>
