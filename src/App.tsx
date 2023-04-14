@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import AuthContext from './Context/AuthContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Pages/Login/Login';
+import Login from './Pages/Login tanpa API/Login';
 import AddProduct from './Pages/Admin/Add Product/AddProduct';
 import HomeAdmin from './Pages/Admin/Home/HomeAdmin';
 import OutletNav from './Outlet/OutletNav';
 import Home from './Pages/Home User/Home';
 import ProductDetail from './Pages/Detail/ProductDetail';
 import Cart from './Pages/Cart/Cart';
+import LoginForm from './Pages/Login API/LoginForm';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -25,7 +26,7 @@ function App() {
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Routes>
-        <Route path='/Login' element={<Login />} />
+        <Route path='/Login' element={<LoginForm />} />
         <Route path='/' element={<OutletNav />}>
 
           <Route path='Admin'>

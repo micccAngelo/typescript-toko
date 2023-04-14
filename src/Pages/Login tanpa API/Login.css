@@ -11,10 +11,17 @@
     margin-top: 70px;
     text-align: left;
     justify-content: center;
-    width: 80%;
+    width: 50%;
     height: 60%;
   }
   
   .title-login {
     padding-bottom: 25px;
+  }
+
+  @media (max-width: 900px) {
+    .LoginCard {
+      width: 70%;
+      height: 50%;
+    }
   }
