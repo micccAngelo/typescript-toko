@@ -83,9 +83,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
     <div className="card-container-detail">
       {product ? (
         <Card
-          className="card-detail"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
+          className="card-detail">
           <Carousel slide={false} interval={3000} className="images">
             <Carousel.Item>
               <Card.Img
