@@ -30,7 +30,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
       setErrors,
     }: {
       setSubmitting: (isSubmitting: boolean) => void;
-      setErrors: (errors: { submitError?: string }) => void;
+      setErrors: (submitError?: any) => void;
     }
   ) => {
     try {
@@ -43,7 +43,8 @@ const LoginForm: React.FC<LoginFormProps> = () => {
         navigate("/Admin/Home");
       }, 2000);
     } catch (error) {
-      alert(error)
+      console.log(error)
+      setErrors({ submitError: error });
     } finally {
       setSubmitting(false);
     }
