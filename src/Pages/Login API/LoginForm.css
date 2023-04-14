@@ -6,7 +6,7 @@
   }
   
   .Form {
-    width: 18rem;
+    width: 45%;
     padding: 20px;
     margin-bottom: 10%;
   }
@@ -14,4 +14,12 @@
   .title{
     white-space: nowrap;
     margin-bottom: 2rem;
+  }
+
+  @media(max-width: 780px) {
+    .Form {
+        width: 70%;
+        padding: 20px;
+        margin-bottom: 10%;
+    }
   }
