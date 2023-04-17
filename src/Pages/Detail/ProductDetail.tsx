@@ -28,17 +28,29 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
       setLoading(true);
       try {
         const productData = await GetSingleProduct(id);
-        console.log(id);
         setProduct(productData);
         setStock(productData.stock);
-        console.log(productData);
+        localStorage.setItem(`product-${id}`, JSON.stringify(productData)); 
         setLoading(false);
       } catch (error) {
         console.log(error);
         setLoading(false);
       }
     };
-    fetchProducts(id);
+    const savedProduct = localStorage.getItem(`product-${id}`); 
+    if (savedProduct) {
+      setProduct(JSON.parse(savedProduct));
+      setStock(JSON.parse(savedProduct).stock);
+    } else {
+      fetchProducts(id);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    const savedStock = localStorage.getItem(`product-${id}-stock`);
+    if (savedStock) {
+      setStock(parseInt(savedStock));
+    }
   }, [id]);
 
   const renderRating = (rating: number) => {
@@ -71,12 +83,14 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
     if (stock === 0) {
       return;
     }
-    setStock(stock - 1);
+    const newStock = stock - 1;
+    setStock(newStock);
+    localStorage.setItem(`product-${id}-stock`, newStock.toString());
     setShowModal(true);
     setProductName(product.title);
     dispatch(addToCart(product));
-    console.log(product.stock);
-    console.log(stock);
+    const updatedProduct = { ...product, stock: newStock };
+    localStorage.setItem(`product-${id}`, JSON.stringify(updatedProduct)); 
   };
 
   return (
