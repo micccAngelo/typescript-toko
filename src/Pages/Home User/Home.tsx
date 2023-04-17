@@ -31,19 +31,22 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (search.toString()) {
       fetchProductbySearch(search.toString().trim());
-      setSelectedCategory("All")
     } else {
       fetchProducts();
     }
+    setSelectedCategory("");
+    setNotFound(false);
   }, [search]);
-
+  
   useEffect(() => {
     setLoading(true);
     if (selectedCategory !== "") {
       fetchProductbyCategory(selectedCategory);
       setLoading(false);
+    } else if (!notFound) {
+      fetchProducts();
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, notFound]);
 
   const fetchProducts = async (): Promise<Product[]> => {
     setLoading(true);
