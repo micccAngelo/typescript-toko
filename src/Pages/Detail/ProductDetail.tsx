@@ -19,7 +19,8 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
   const [product, setProduct] = useState<Product>();
   const [showModal, setShowModal] = useState<boolean>(false);
   const [productName, setProductName] = useState<string>();
-  const [stock, setStock] = useState<number>();
+  const [initialStock, setInitialStock] = useState<number>();
+  const [stock, setStock] = useState<any>();
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
 
@@ -30,6 +31,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
         const productData = await GetSingleProduct(id);
         console.log(id);
         setProduct(productData);
+        setInitialStock(productData.stock);
         setStock(productData.stock);
         console.log(productData);
         setLoading(false);
@@ -71,7 +73,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
     if (stock === 0) {
       return;
     }
-    setStock(product.stock - 1);
+    setStock(stock - 1);
     setShowModal(true);
     setProductName(product.title);
     dispatch(addToCart(product));
