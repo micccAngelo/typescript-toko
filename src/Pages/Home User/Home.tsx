@@ -31,6 +31,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (search.toString()) {
       fetchProductbySearch(search.toString().trim());
+      setSelectedCategory("All")
     } else {
       fetchProducts();
     }

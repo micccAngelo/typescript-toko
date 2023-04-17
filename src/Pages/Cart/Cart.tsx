@@ -1,5 +1,5 @@
 import "./Cart.css";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   removeFromCart,
@@ -27,6 +27,7 @@ export const Cart = () => {
     (acc: any, cur: any) => acc + cur.price * cur.quantity,
     0
   );
+
 
   return (
     <div className="cart">

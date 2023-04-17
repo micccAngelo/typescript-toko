@@ -125,7 +125,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
                 <p>Rating: {product.rating}</p>
                 <p className="star">
                   {renderRating(product.rating)}
-                  <br />{" "}
+                  <br />
                 </p>
               </div>
               <p>

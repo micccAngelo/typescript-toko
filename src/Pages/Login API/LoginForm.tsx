@@ -50,6 +50,10 @@ const LoginForm: React.FC<LoginFormProps> = () => {
     }
   };
 
+  if(isLoggedIn) {
+    navigate("/Admin/Home");
+  }
+
   return (
     <div className="Forms">
       <Card className="Form">
