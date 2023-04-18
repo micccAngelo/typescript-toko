@@ -97,6 +97,7 @@ const HomeAdmin = () => {
                   </Card.Text>
                   <div className="card-button-container delete">
                     <Button
+                      className="delete-btn"
                       variant="outline-danger delete"
                       onClick={() =>
                         handleDeleteProduct(product.id, product.title)

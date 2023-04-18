@@ -55,8 +55,13 @@
     right: 0;
     padding: 10px;
     padding-bottom: 30px;
+    width: 100%;
   }
   
   .delete {
+    width: 100%;
+  }
+
+  .delete-btn {
     width: 100%;
   }

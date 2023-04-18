@@ -116,11 +116,6 @@
     height: 150px;
     object-fit: cover;
   }
-
-  .product-card .btn {
-    width: 50%;
-    height: 20%;
-  }
   
   .button-add-text {
     font-size: small;
@@ -146,11 +141,6 @@
     height: 345px;
     margin: 5px;
     text-align: left;
-  }
-
-  .product-card .btn {
-    width: 30%;
-    height: 10%;
   }
 }
 
