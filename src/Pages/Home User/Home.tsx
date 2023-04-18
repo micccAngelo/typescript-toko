@@ -155,6 +155,7 @@ const Home: React.FC = () => {
                   </Link>
                   <div className="card-button-container-user">
                     <Button
+                      className="add-to-cart-btn"
                       variant="outline-secondary button-add-text"
                       onClick={() => handleAddToCart(product)}
                     >
