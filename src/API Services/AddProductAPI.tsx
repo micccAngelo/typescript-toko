@@ -11,7 +11,7 @@ const AddProducts = async (values: Product): Promise<Product> => {
       return Promise.resolve(productResponse);
   } catch (error) {
       console.log(error);
-      return Promise.reject();
+      return Promise.reject('Failed to add product');
   }
 };
 

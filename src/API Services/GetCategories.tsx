@@ -6,7 +6,7 @@ const GetCategories = async (): Promise<Array<string>> => {
         return Promise.resolve(response.data);
     } catch (error) {
         console.log(error);
-        return Promise.reject();
+        return Promise.reject('Failed to fetch categories from server');
     }
 };
 

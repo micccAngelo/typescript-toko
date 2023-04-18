@@ -9,7 +9,7 @@ const GetSingleProduct = async (id: number): Promise<Product> => {
         return Promise.resolve(apiProduct);
     } catch (error) {
         console.log(error);
-        return Promise.reject();
+        return Promise.reject('Failed to fetch product from server');
     }
 };
   

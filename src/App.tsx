@@ -25,7 +25,7 @@ function App() {
   
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Routes>
+      <Routes>
         <Route path='/Login' element={<LoginForm />} />
         <Route path='/' element={<OutletNav />}>
 

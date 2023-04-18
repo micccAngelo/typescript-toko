@@ -9,7 +9,7 @@ const Search = async (query: string): Promise<Array<Product>> => {
         return Promise.resolve(products);
     } catch (error) {
         console.log(error);
-        return Promise.reject();
+        return Promise.reject('Failed to fetch products from server');
     }
 };
 
