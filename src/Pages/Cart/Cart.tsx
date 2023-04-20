@@ -1,30 +1,26 @@
 import "./Cart.css";
 import { Card, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  removeFromCart,
-  increaseQuantity,
-  decreaseQuantity,
-} from "../../Store/CartSlice";
+import { selectAllCarts, deleteCart, quantityIncreased, quantityDecreased } from "../../Store/CartSlice";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export const Cart = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  const cartItems = useSelector(selectAllCarts);
   const { isLoggedIn } = useContext(AuthContext);
 
-  const handleRemove = (id: any) => {
-    dispatch(removeFromCart(id));
+  const handleRemove = (id: number) => {
+    dispatch(deleteCart(id));
   };
 
-  const handleIncreaseQuantity = (id: any) => {
-    dispatch(increaseQuantity(id));
+  const handleIncreaseQuantity = (id: number) => {
+    dispatch(quantityIncreased(id));
   };
 
-  const handleDecreaseQuantity = (id: any) => {
-    dispatch(decreaseQuantity(id));
+  const handleDecreaseQuantity = (id: number) => {
+    dispatch(quantityDecreased(id));
   };
 
   const totalPrice = cartItems.reduce(

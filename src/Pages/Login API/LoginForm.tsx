@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
@@ -14,8 +14,8 @@ interface LoginFormProps {}
 
 const LoginForm: React.FC<LoginFormProps> = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const validationSchema = Yup.object().shape({
@@ -32,7 +32,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
       setSubmitting: (isSubmitting: boolean) => void;
       setErrors: (submitError?: any) => void;
     }
-  ) => {
+  ): Promise<void> => {
     try {
       const data = await LoginAPI(values.email, values.password);
       localStorage.setItem("username", data.username);
@@ -50,8 +50,8 @@ const LoginForm: React.FC<LoginFormProps> = () => {
     }
   };
 
-  if(isLoggedIn) {
-    navigate("/Admin/Home");
+  if (isLoggedIn) {
+    return <Navigate to="/Admin/Home" replace />;
   }
 
   return (

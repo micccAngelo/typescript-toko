@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const instance = axios.create({
+const instance2 = axios.create({
   baseURL: 'https://api.primaxcelinovasi.co.id',
 });
 
-export default instance;
+export default instance2;

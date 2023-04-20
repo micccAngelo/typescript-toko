@@ -13,14 +13,14 @@ import { Navigate } from "react-router-dom";
 import Product from "../../../Model/Product";
 
 const HomeAdmin = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [deleteModal, setDeleteModal] = useState(false);
   const [deletedProductName, setDeletedProductName] = useState<
     string | undefined
   >();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchProducts = async () => {
     setLoading(true);

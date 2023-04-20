@@ -5,8 +5,8 @@ const GetSingleProduct = async (id: number): Promise<Product> => {
     try {
         const response = await BaseURL.get(`/products/${id}`);
         const apiProduct = response.data;
-        // const productResponse = new Product(apiProduct);
-        return Promise.resolve(apiProduct);
+        const productResponse = new Product(apiProduct);
+        return Promise.resolve(productResponse);
     } catch (error) {
         console.log(error);
         return Promise.reject('Failed to fetch product from server');

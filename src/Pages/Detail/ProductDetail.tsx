@@ -9,7 +9,7 @@ import GetSingleProduct from "../../API Services/GetSingleProduct";
 import { Badge, Button } from "react-bootstrap";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import Product from "../../Model/Product";
-import { addToCart } from "../../Store/CartSlice";
+import { cartAdded } from "../../Store/CartSlice";
 import { useDispatch } from "react-redux";
 
 interface ProductDetailProps {}
@@ -29,29 +29,21 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
       try {
         const productData = await GetSingleProduct(id);
         setProduct(productData);
-        setStock(productData.stock);
-        localStorage.setItem(`product-${id}`, JSON.stringify(productData)); 
+        const storedStock = localStorage.getItem(`product-${id}-stock`);
+        if (storedStock) {
+          setStock(storedStock);
+        } else {
+          setStock(productData.stock);
+        }
         setLoading(false);
       } catch (error) {
         console.log(error);
         setLoading(false);
       }
     };
-    const savedProduct = localStorage.getItem(`product-${id}`); 
-    if (savedProduct) {
-      setProduct(JSON.parse(savedProduct));
-      setStock(JSON.parse(savedProduct).stock);
-    } else {
-      fetchProducts(id);
-    }
+    fetchProducts(id);
   }, [id]);
-
-  useEffect(() => {
-    const savedStock = localStorage.getItem(`product-${id}-stock`);
-    if (savedStock) {
-      setStock(parseInt(savedStock));
-    }
-  }, [id]);
+  
 
   const renderRating = (rating: number) => {
     const stars = [];
@@ -80,17 +72,21 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
   }
 
   const handleAddToCart = (product: Product) => {
+    const { id, title, description, price, stock, images } = product;
     if (stock === 0) {
       return;
     }
     const newStock = stock - 1;
     setStock(newStock);
-    localStorage.setItem(`product-${id}-stock`, newStock.toString());
-    setShowModal(true);
+    const updatedProduct = {
+      ...product,
+      stock: newStock
+    };
+    dispatch(cartAdded(id, title, description, price, newStock, images));
     setProductName(product.title);
-    dispatch(addToCart(product));
-    const updatedProduct = { ...product, stock: newStock };
-    localStorage.setItem(`product-${id}`, JSON.stringify(updatedProduct)); 
+    setShowModal(true);
+    localStorage.setItem(`product-${id}-stock`, newStock.toString());
+    setProduct(updatedProduct);
   };
 
   return (

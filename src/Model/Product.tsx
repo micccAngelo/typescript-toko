@@ -1,5 +1,5 @@
 export default class Product {
-    id?: number;
+    id: number;
     title: string;
     price: number;
     brand: string;
@@ -11,7 +11,7 @@ export default class Product {
     images: string[];
 
     constructor (api:any) {
-        this.id = api?.id
+        this.id = api.id
         this.title =  api.title
         this.price = api.price
         this.thumbnail = api.thumbnail
@@ -21,5 +21,6 @@ export default class Product {
         this.description = api.description
         this.category = api.category
         this.images = api.images
+
     }
 }

@@ -6,10 +6,9 @@ import "./Category.css";
 
 interface CategoryProps {
   handleCategorySelect: (category: string) => void;
-  selectedCategory?: string;
 }
 
-function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
+function Category({ handleCategorySelect }: CategoryProps) {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -45,7 +44,6 @@ function Category({ handleCategorySelect, selectedCategory }: CategoryProps) {
                 <ListGroup.Item
                   key={category}
                   action
-                  active={category === selectedCategory}
                   onClick={() => handleCategorySelect(category)}
                 >
                   {category}

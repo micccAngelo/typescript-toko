@@ -10,10 +10,11 @@ import {
 } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import Modals from "../../Reusable/Modals";
+import debounce from 'lodash/debounce';
 
 function AppNavbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const username = localStorage.getItem("username");
   const [search, setSearch] = useSearchParams();
   const location = useLocation();
@@ -24,9 +25,8 @@ function AppNavbar() {
     setShowLogoutModal(true);
   };
 
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onSearch = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     const searchInput = e.target.value;
-
     if (searchInput.length === 0) {
       search.delete("q");
       setSearch(search, {
@@ -38,7 +38,7 @@ function AppNavbar() {
         replace: true,
       });
     }
-  };
+  }, 1000);
 
   const handleLogoutConfirm = () => {
     setIsLoggedIn(false);
@@ -68,7 +68,7 @@ function AppNavbar() {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {!isLoggedIn && (
+          {!isLoggedIn && location.pathname !== "/User/Cart" && !location.pathname.startsWith("/User/Product/") && (
             <Form className="d-flex ms-auto">
               <FormControl
                 type="search"

@@ -9,7 +9,7 @@ import GetProductbyCategory from "../../API Services/GetProductbyCategory";
 import Search from "../../API Services/Search";
 import Loadings from "../../Reusable/Loadings";
 import Modals from "../../Reusable/Modals";
-import { addToCart } from "../../Store/CartSlice";
+import { cartAdded } from "../../Store/CartSlice";
 import Product from "../../Model/Product";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
@@ -99,7 +99,8 @@ const Home: React.FC = () => {
   };
 
   const handleAddToCart = (product: Product): void => {
-    dispatch(addToCart(product));
+    const { id, title, description, price, stock, images } = product;
+    dispatch(cartAdded(id, title, description, price, stock, images));
     setShowModal(true);
     setProductName(product.title);
   };

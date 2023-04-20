@@ -18,6 +18,7 @@ const AddProduct: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const { isLoggedIn } = useContext(AuthContext);
   const initialValues: Product = {
+    id: 0,
     title: "",
     price: 0,
     brand: "",
