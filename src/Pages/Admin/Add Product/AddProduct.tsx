@@ -17,18 +17,6 @@ const AddProduct: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const { isLoggedIn } = useContext(AuthContext);
-  const initialValues: Product = {
-    id: 0,
-    title: "",
-    price: 0,
-    brand: "",
-    stock: 0,
-    rating: 0,
-    description: "",
-    category: "",
-    thumbnail: "",
-    images: [],
-  };
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -102,7 +90,18 @@ const AddProduct: React.FC = () => {
         message={`Product successfuly added!`}
       />
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          id: 0,
+          title: "",
+          price: 0,
+          brand: "",
+          stock: 0,
+          rating: 0,
+          description: "",
+          category: "",
+          thumbnail: "",
+          images: [],
+        }}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >

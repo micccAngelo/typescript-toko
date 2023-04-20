@@ -24,7 +24,7 @@ export const Cart = () => {
   };
 
   const totalPrice = cartItems.reduce(
-    (acc: any, cur: any) => acc + cur.price * cur.quantity,
+    (acc: number, cur:  any) => acc + cur.price * cur.quantity,
     0
   );
 

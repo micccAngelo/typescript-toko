@@ -43,7 +43,7 @@ const HomeAdmin = () => {
     navigate("/Admin/AddProduct");
   };
 
-  const handleDeleteProduct = async (id: any, title: string) => {
+  const handleDeleteProduct = async (id: number, title: string) => {
     try {
       await DeleteProduct(id);
       setDeleteModal(true);

@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
-const instance: AxiosInstance = axios.create({
+const BaseURL: AxiosInstance = axios.create({
   baseURL: 'https://dummyjson.com',
 });
 
-export default instance;
+export default BaseURL;
